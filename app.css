@@ -1,0 +1,68 @@
+
+
+.main-nav { /* enclosing element */
+  position: relative;
+  width: 300px;
+  height: auto;
+}
+
+.sub-menu{
+  color: #000;
+  width: inherit; /* enclosing element must have defined width */
+  /*background-color: #f0f0f0;*/
+}
+
+.sub-menu-active{
+  color: #000;
+  width: inherit; /* enclosing element must have defined width */
+}
+
+.main-elem {
+  font-family: sans-serif;
+  width: inherit; /**/
+  text-align: left;
+  line-height: 40px;
+  height: 40px; /**/
+  cursor: pointer;
+  position: relative;
+}
+
+.main-elem:hover {
+  background-color: #636363 !important;
+  color: #fff;
+  left: 10px; /* amount shifted to reveal main background */
+}
+
+
+.item {
+  display: inline-block;
+  width: 80%; /**/
+}
+
+.item-name {
+  color: inherit;
+  text-decoration: none;
+  padding-left: 20px;
+  display: block;
+  width: 100%; /* to enable uniform hover on icon */ 
+  height: 100%;
+  position: absolute; /**/
+  top: 0; /* required since position is absolute */
+}
+
+.icon {
+  width: 20%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+  position: absolute; /**/
+}
+
+.main-elem:hover .item-name {
+  left: -10px;
+}
+
+.main-elem:hover .icon {
+  right: 10px;
+}
+
