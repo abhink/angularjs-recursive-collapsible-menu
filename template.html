@@ -1,0 +1,35 @@
+<div
+  class="sub-menu"
+  ng-repeat="item in family"
+  ng-style="{'background-color': '{{parentcolor}}'}"
+>
+  <div
+    class="main-elem"
+    ng-click="setActive($index)"
+    ng-if="activeIndex == -1 || $index == activeIndex"
+    ng-style="setBGColor(level)"
+  >
+    <div class="item">
+      <a
+        class="item-name"
+        ng-href={{item.link}}
+        ng-style="setTextAlignment(level)"
+      >
+        {{ item.name }}
+      </a>
+    </div>
+    <div class="icon">{{getIcon($index)}}</div>
+  </div>
+  <!--
+    ng-if recreates directive scope everytime it re-inserts
+    the DOM thus, there is no need to manually adjust the
+    of the lower level menus if the top parent menu is
+    selections unselected
+  -->
+  <tree
+    family="item.children"
+    level={{getNextLevel(level)}}
+    parentcolor="parentcolor"
+    ng-if="$index == activeIndex">
+  </tree>
+</div>
